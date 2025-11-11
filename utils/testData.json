@@ -1,0 +1,9 @@
+{
+	
+	"BASE_URL": "https://automationexercise.com/",
+	"ACTUAL_URL": "https://automationexercise.com/login",
+	"Accountinfo_URL":"https://automationexercise.com/signup",
+	"AccountCreated_URL":"https://automationexercise.com/account_created",
+	"TestCasePage_URL":"https://automationexercise.com/test_cases",
+	"ProductPage_URL":"https://automationexercise.com/products"
+}
