@@ -1,147 +1,133 @@
-import { Locator, Page, expect } from '@playwright/test';
-import { BASE_URL } from '../utils/testData.json';
-
+import { Locator, Page, expect } from "@playwright/test";
+import { BASE_URL } from "../utils/testData.json";
 
 export class RegistrationPage {
   page: Page;
-  private SignupLoginbuttonclick:Locator;
+  private SignupLoginbuttonclick: Locator;
   private inputName: Locator;
   private fillemailAddress: Locator;
   private signupClick: Locator;
-private SignupHeader: Locator
-private TitleHeader:Locator;
-private radiobtnMrs:Locator;
-private passwordInput:Locator;
-private DayDropdown:Locator;
-private monthDropdown:Locator;
-private yearDropdown:Locator;
-private Addressinfo:Locator;
-private FirstName:Locator;
-private LastName:Locator;
-private CompanyName:Locator;
-private AddressName:Locator;
-private Address2:Locator
-private StateName:Locator
-private CityName:Locator
-private ZipCode:Locator
-private MobilNumber:Locator
-private CountryDropdown:Locator
-private Submitbtn:Locator
-private Accountcreated:Locator
-private Continuebtn:Locator
-
+  private radiobtnMrs: Locator;
+  private passwordInput: Locator;
+  private DayDropdown: Locator;
+  private monthDropdown: Locator;
+  private yearDropdown: Locator;
+  private Addressinfo: Locator;
+  private FirstName: Locator;
+  private LastName: Locator;
+  private CompanyName: Locator;
+  private AddressName: Locator;
+  private Address2: Locator;
+  private StateName: Locator;
+  private CityName: Locator;
+  private ZipCode: Locator;
+  private MobilNumber: Locator;
+  private CountryDropdown: Locator;
+  private Submitbtn: Locator;
+  private Accountcreated: Locator;
+  private Continuebtn: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    this.SignupLoginbuttonclick=page.getByText(' Signup / Login')
-    this.inputName = page.getByPlaceholder('Name');
+    this.SignupLoginbuttonclick = page.getByText(" Signup / Login");
+    this.inputName = page.getByPlaceholder("Name");
     this.fillemailAddress = page.locator('[data-qa="signup-email"]');
     this.signupClick = page.locator('[data-qa="signup-button"]');
-    this.SignupHeader=page.getByText("Enter Account Information")
-    this.TitleHeader=page.getByText("Title")
-    this.radiobtnMrs = page.locator("//input[@id='id_gender2']");
-    this.passwordInput = page.locator('#password');
-    this.DayDropdown=page.locator('#days')
-    this.monthDropdown=page.locator('#months')
-    this.yearDropdown=page.locator('#years')
-    this.Addressinfo=page.getByText('Address Information')
-    this.FirstName=page.locator('#first_name')
-    this.LastName=page.locator('#last_name')
-    this.CompanyName=page.locator('#company')
-    this.AddressName=page.locator('#address1')
-    this.Address2=page.locator('#address2')
-    this.CountryDropdown=page.locator('#country')
-    this.StateName=page.locator('#state')
-    this.CityName=page.locator('#city')
-    this.ZipCode=page.locator('#zipcode')
-    this.MobilNumber=page.locator('#mobile_number')
-    this.Submitbtn=page.locator('[data-qa="create-account"]');
-    this.Accountcreated=page.getByText('Account Created!')
-    this.Continuebtn=page.locator('[data-qa="continue-button"]')
-    
-   }
+    this.radiobtnMrs = page.locator("#id_gender2");
+    this.passwordInput = page.locator("#password");
+    this.DayDropdown = page.locator("#days");
+    this.monthDropdown = page.locator("#months");
+    this.yearDropdown = page.locator("#years");
+    this.Addressinfo = page.getByText("Address Information");
+    this.FirstName = page.locator("#first_name");
+    this.LastName = page.locator("#last_name");
+    this.CompanyName = page.locator("#company");
+    this.AddressName = page.locator("#address1");
+    this.Address2 = page.locator("#address2");
+    this.CountryDropdown = page.locator("#country");
+    this.StateName = page.locator("#state");
+    this.CityName = page.locator("#city");
+    this.ZipCode = page.locator("#zipcode");
+    this.MobilNumber = page.locator("#mobile_number");
+    this.Submitbtn = page.locator('[data-qa="create-account"]');
+    this.Accountcreated = page.getByText("Account Created!");
+    this.Continuebtn = page.locator('[data-qa="continue-button"]');
+  }
 
   async goto() {
     await this.page.goto(BASE_URL);
   }
 
-  async SignupLoginbtnclick(){
-        await this.SignupLoginbuttonclick.click()
-    }
-    async fillSignupDetails() {
-        await this.inputName.fill('shika');
-        await this.fillemailAddress.fill('shika123@gmail.com');
-    }
-    async ClickSignupBtn(){
-        await this.signupClick.click()
-    }
-    async isSignupHeaderVisible(){
-        await expect(this.SignupHeader).toBeVisible();
-    }
-    async isTitleHeaderVisible(){
-        await expect(this.TitleHeader).toBeVisible();
-    }
-    async radiobtnClick(){
-        await this.radiobtnMrs.click()
-    }
+  async SignupLoginbtnclick() {
+    await this.SignupLoginbuttonclick.click();
+  }
+  async fillSignupDetails(name: string, email: string) {
+    await this.inputName.fill(name);
+    await this.fillemailAddress.fill(email);
+  }
+  async ClickSignupBtn() {
+    await this.signupClick.click();
+  }
 
-  async validateRadiobtn(){
-    return await expect(this.radiobtnMrs).toBeChecked()
+  async radiobtnClick() {
+    await this.radiobtnMrs.click();
   }
-  async fillPassword(){
-    await this.passwordInput.fill('Rashika123')
+
+  async validateRadiobtn() {
+    return await expect(this.radiobtnMrs).toBeChecked();
   }
-async selectDay(dayValue: string) {
+  async fillPassword() {
+    await this.passwordInput.fill("Rashmika123");
+  }
+  async selectDay(dayValue: string) {
     await this.DayDropdown.selectOption(dayValue);
   }
-async SelectMonth(monthName:string){
-  await this.monthDropdown.selectOption(monthName)
-}
-async SelectYear(year:string){
-  await this.yearDropdown.selectOption(year)
-}
-async AddressinfoHeaderVisible(){
-  await expect (this.Addressinfo).toBeVisible()
-}
-async FillFirstName(){
-  await this.FirstName.fill('Neha')
-}
-async FillLastname(){
-  await this.LastName.fill('Singh')
-}
-async FillCompanyName(){
-  await this.CompanyName.fill('Softech')
-}
-async FillAddress(){
-  await this.AddressName.fill('Gurgaon')
-}
-async FillSecondAddress(){
-  await this.Address2.fill('Delhi')
-}
-async SelectCountryName(countryName:string){
-  await this.CountryDropdown.selectOption(countryName)
-}
-async FillStateName(){
-  await this.StateName.fill('Haryana')
-}
-async FillCityName(){
-  await this.CityName.fill('Noida')
-}
-async FillZipCode(){
-  await this.ZipCode.fill('12023')
-
-}
-async FillMobileNumber(){
-  await this.MobilNumber.fill('123456789')
-}
-async ClickonSubmitbtn() {
-  await this.Submitbtn.click()
-}
-async AccountCreatedHeadinVisible(){
-  await expect(this.Accountcreated).toBeVisible()
-}
-async ContinueBtnClick(){
-  await this.Continuebtn.click()
-}
-
+  async SelectMonth(monthName: string) {
+    await this.monthDropdown.selectOption(monthName);
+  }
+  async SelectYear(year: string) {
+    await this.yearDropdown.selectOption(year);
+  }
+  async AddressinfoHeaderVisible() {
+    await expect(this.Addressinfo).toBeVisible();
+  }
+  async FillFirstName() {
+    await this.FirstName.fill("Neha");
+  }
+  async FillLastname() {
+    await this.LastName.fill("Singh");
+  }
+  async FillCompanyName() {
+    await this.CompanyName.fill("Softech");
+  }
+  async FillAddress() {
+    await this.AddressName.fill("Gurgaon");
+  }
+  async FillSecondAddress() {
+    await this.Address2.fill("Delhi");
+  }
+  async SelectCountryName(countryName: string) {
+    await this.CountryDropdown.selectOption(countryName);
+  }
+  async FillStateName() {
+    await this.StateName.fill("Haryana");
+  }
+  async FillCityName() {
+    await this.CityName.fill("Noida");
+  }
+  async FillZipCode() {
+    await this.ZipCode.fill("12023");
+  }
+  async FillMobileNumber() {
+    await this.MobilNumber.fill("123456789");
+  }
+  async ClickonSubmitbtn() {
+    await this.Submitbtn.click();
+  }
+  async AccountCreatedHeadinVisible() {
+    await expect(this.Accountcreated).toBeVisible();
+  }
+  async ContinueBtnClick() {
+    await this.Continuebtn.click();
+  }
 }

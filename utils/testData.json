@@ -5,5 +5,13 @@
 	"Accountinfo_URL":"https://automationexercise.com/signup",
 	"AccountCreated_URL":"https://automationexercise.com/account_created",
 	"TestCasePage_URL":"https://automationexercise.com/test_cases",
-	"ProductPage_URL":"https://automationexercise.com/products"
+	"ProductPage_URL":"https://automationexercise.com/products",
+	"CartPage_URL":"https://automationexercise.com/view_cart",
+	"LoginPage_URL":"https://automationexercise.com/login",
+	"DressPage_URL":"https://automationexercise.com/category_products/1",
+	"TopPage_URL":"https://automationexercise.com/category_products/2",
+	"SareePage_URL":"https://automationexercise.com/category_products/7",
+	"TshirtPage_URL":"https://automationexercise.com/category_products/3",
+	"JeansPage_URL":"https://automationexercise.com/category_products/6",
+	"ValidProduct_URL":"https://automationexercise.com/products?search=Blue%20Top"
 }

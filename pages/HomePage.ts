@@ -3,7 +3,7 @@ import { BASE_URL } from "../utils/testData.json";
 
 export class homePage {
   page: Page;
-  private TotalBrands: Locator;
+  TotalBrands: Locator;
   private pololoc: Locator;
   private HMloc: Locator;
   private Madameloc: Locator;
@@ -16,39 +16,28 @@ export class homePage {
   Logoutbtnloc: Locator;
   Deletebtnloc: Locator;
   SignupLoginbtn: Locator;
+  AddtoCartloc: Locator;
+  productadded: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.TotalBrands = page.locator("ul.nav.nav-pills.nav-stacked > li");
-    this.pololoc = page.locator(
-      "//ul[contains(@class, 'nav-pills')]/li[1]/a/span"
-    );
-    this.HMloc = page.locator(
-      "//ul[contains(@class, 'nav-pills')]/li[2]/a/span"
-    );
-    this.Madameloc = page.locator(
-      "//ul[contains(@class, 'nav-pills')]/li[3]/a/span"
-    );
-    this.MastandHarbourloc = page.locator(
-      "//ul[contains(@class, 'nav-pills')]/li[4]/a/span"
-    );
-    this.Babyhugloc = page.locator(
-      "//ul[contains(@class, 'nav-pills')]/li[5]/a/span"
-    );
-    this.AllenSollyJuniorloc = page.locator(
-      "//ul[contains(@class, 'nav-pills')]/li[6]/a/span"
-    );
-    this.KookieKidsloc = page.locator(
-      "//ul[contains(@class, 'nav-pills')]/li[7]/a/span"
-    );
-    this.Bibaloc = page.locator(
-      "//ul[contains(@class, 'nav-pills')]/li[8]/a/span"
-    );
-
+    this.pololoc = page.getByRole("link", { name: /Polo/i });
+    this.HMloc = page.getByRole("link", { name: /H&M/i });
+    this.Madameloc = page.getByRole("link", { name: /Madame/i });
+    this.MastandHarbourloc = page.getByRole("link", { name: /Mast.*Harbour/i });
+    this.Babyhugloc = page.getByRole("link", { name: /Babyhug/i });
+    this.AllenSollyJuniorloc = page.getByRole("link", {
+      name: /Allen.*Solly.*Junior/i,
+    });
+    this.KookieKidsloc = page.getByRole("link", { name: /Kookie.*Kids/i });
+    this.Bibaloc = page.getByRole("link", { name: /Biba/i });
     this.HomeBtnloc = page.getByRole("link", { name: "Home" });
-    this.SignupLoginbtn = page.locator('a[href="/login"]')
+    this.SignupLoginbtn = page.locator('a[href="/login"]');
     this.Logoutbtnloc = this.page.getByRole("link", { name: "Logout" });
     this.Deletebtnloc = page.locator('a[href="/delete_account"]');
+    this.AddtoCartloc = page.getByText("Add to cart").nth(0);
+    this.productadded = page.getByText("Your product has been added to cart.");
   }
   async goto() {
     await this.page.goto(BASE_URL);
@@ -66,7 +55,7 @@ export class homePage {
 
     return Brandcount;
   }
-    async validateHMNumber() {
+  async validateHMNumber() {
     const BrandValue = await this.HMloc.innerText();
     const Brandcount = await parseInt(
       BrandValue.replace(/[()]/g, "").trim(),
@@ -143,7 +132,9 @@ export class homePage {
     ];
     const total = counts.reduce((sum, count) => sum + count, 0);
     return total;
+    console.log(total)
   }
+
   async validateBrand() {
     const count = await this.TotalBrands.count();
     for (let i = 0; i < count; i++) {
@@ -161,6 +152,4 @@ export class homePage {
   async isDeletebtnVisible() {
     await expect(this.Deletebtnloc).toBeVisible();
   }
-
-  
 }

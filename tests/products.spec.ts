@@ -15,8 +15,3 @@ test('Verify All Products and product detail page',async({ ProductsPage})=>{
  await ProductsPage.viewProductbtnClick()
 
 })
-// test('Verify ',async({ ProductsPage})=>{
-//  const count = await ProductsPage.number();
-//  console.log(count)
-
-// })
