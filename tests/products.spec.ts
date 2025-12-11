@@ -1,5 +1,5 @@
-import { expect } from '@playwright/test';
-import { test } from './myfixture';
+import { expect } from "@playwright/test";
+import { test } from "./myfixture";
 import { BASE_URL, TestCasePage_URL, ProductPage_URL } from '../utils/testData.json';
 import { productsPage } from '../pages/productsPage';
 

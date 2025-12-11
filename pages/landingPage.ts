@@ -47,6 +47,7 @@ export class landingPage {
   checkoutBtn: Locator;
   registerLoginLink: Locator;
   deleteBtn: Locator;
+ 
 
   constructor(page: Page) {
     this.page = page;
@@ -100,6 +101,7 @@ export class landingPage {
       name: "Register / Login",
     });
     this.deleteBtn = page.locator("a.cart_quantity_delete");
+    
   }
 
   async goto() {

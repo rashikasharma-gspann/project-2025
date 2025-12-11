@@ -1,8 +1,11 @@
+
 import { expect } from "@playwright/test";
 import { test } from "./myfixture";
 import { BASE_URL } from "../utils/testData.json";
 import { ACTUAL_URL, LoginPage_URL } from "../utils/testData.json";
-import { loginPage } from "../pages/LoginPage";
+import { loginPage } from "../pages/loginPage.ts";
+import { writeResultToExcel } from "../utils/excelWrite.ts";
+
 
 test("Login account Test", async ({ LoginPage }) => {
   await LoginPage.goto();
@@ -11,6 +14,7 @@ test("Login account Test", async ({ LoginPage }) => {
   await LoginPage.fillDetails();
   await LoginPage.loginClick();
   await LoginPage.loginValidate();
+  
 });
 
 test("Login with incorrect email and password", async ({ LoginPage }) => {

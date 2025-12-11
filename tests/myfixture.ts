@@ -1,5 +1,5 @@
-import { test as base, expect, Page } from "@playwright/test";
-import { loginPage } from "../pages/LoginPage";
+import { test as base,expect} from "@playwright/test";
+import { loginPage } from "../pages/loginPage.ts";
 import { RegistrationPage } from "../pages/RegistrationPage";
 import { productsPage } from "../pages/productsPage";
 import { homePage } from "../pages/HomePage";
@@ -18,9 +18,9 @@ type MyFixtures = {
 };
 
 export const test = base.extend<MyFixtures>({
-  LoginPage: async ({ page }, use) => {
-    const login = new loginPage(page);
-    await use(login);
+      LoginPage: async ({ page }, use) => {
+    const loginPageInstance = new loginPage(page);
+    await use(loginPageInstance);
   },
   RegistrationPage: async ({ page }, use) => {
     await use(new RegistrationPage(page));
