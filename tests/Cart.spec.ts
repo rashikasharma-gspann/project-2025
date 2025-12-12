@@ -81,8 +81,9 @@ test("Ensure cart shows correct total including multiple quantities", async ({
   await CartPage.ContinueBtn.click();
   await CartPage.AddSecondProduct.click();
   await CartPage.CartBtn.click();
-  await CartPage.CheckoutBtn.click();
+  await CartPage.CheckoutBtn.click(); 
 });
+
 test("Add different products from different categories to the cart", async ({
   page,
   CartPage,

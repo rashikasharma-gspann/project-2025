@@ -3,16 +3,32 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "sample-test": "npx playwright test tests/login.spec.ts",
+    "test:ui": "npx playwright test --ui",
+    "test:install": "npx playwright install",
+    "test:bs": "npx playwright test --project=bs-chrome --project=bs-firefox --project=bs-webkit",
+    "postinstall": "npm update browserstack-node-sdk",
+    "test-browserstack": "npx browserstack-node-sdk playwright test",
+    "sample-test-browserstack": "npx browserstack-node-sdk playwright test tests/login.spec.ts",
+    "test:ui-browserstack": "npx browserstack-node-sdk playwright test --ui",
+    "test:install-browserstack": "npx browserstack-node-sdk playwright install",
+    "test:bs-browserstack": "npx browserstack-node-sdk playwright test --project=bs-chrome --project=bs-firefox --project=bs-webkit"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.56.1",
-    "@types/node": "^24.9.1"
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^24.10.3",
+    "browserstack-node-sdk": "^1.47.0"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "exceljs": "^4.4.0",
+    "playwright": "^1.57.0",
+    "typescript": "^5.9.3",
     "xlsx": "^0.18.5"
   }
 }
