@@ -57,6 +57,8 @@ export class cartPage {
   NameInput: Locator;
   EmailInput: Locator;
   ReviewTextarea: Locator;
+  AddThirdProduct:Locator;
+  RemoveProduct:Locator
 
   SubmitBtn: Locator;
 
@@ -88,11 +90,12 @@ export class cartPage {
     });
     this.AddFirstProduct = page.getByText("Add to cart").nth(0);
     this.AddSecondProduct = page.getByText("Add to cart").nth(2);
+    this.AddThirdProduct=page.getByText("Add to cart").nth(4)
     this.DeleteProductA = page.locator(
       'a.cart_quantity_delete[data-product-id="1"]'
     );
     this.DeleteProductB = page.locator(
-      "a.cart_quantity_delete[data-product-id]"
+      'a.cart_quantity_delete[data-product-id="2"]'
     );
     this.EmptyCart = page.getByText("Cart is empty!");
     this.AddFirstProductAgain = page.getByText("Add to cart").nth(0);
@@ -138,6 +141,9 @@ export class cartPage {
     this.ReviewTextarea = page.getByPlaceholder("Add Review Here!");
 
     this.SubmitBtn = page.getByRole("button", { name: "Submit" });
+    this.RemoveProduct=page.locator('a[data-product-id="3"]')
+
+    
   }
 
   async goto() {

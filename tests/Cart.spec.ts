@@ -184,3 +184,18 @@ test(" Submit product review from product details page. ", async ({
   await CartPage.ReviewTextarea.fill("Nice Product");
   await CartPage.SubmitBtn.click();
 });
+
+
+test('Cart update and price deduction after product removal', async ({ page,CartPage }) => {
+  await CartPage.goto()
+  await loginUser(page)
+  await CartPage.productbtn.click()
+  await CartPage.AddFirstProduct.click()
+  await CartPage.ContinueBtn.click()
+  await CartPage.AddSecondProduct.click()
+  await CartPage.ContinueBtn.click()
+  await CartPage.AddThirdProduct.click()
+  await CartPage.ContinueBtn.click()
+  await CartPage.CartBtn.click()
+  await CartPage.checkoutBtn.click()
+});

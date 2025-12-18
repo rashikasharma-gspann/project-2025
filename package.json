@@ -22,7 +22,7 @@
   "devDependencies": {
     "@playwright/test": "^1.57.0",
     "@types/node": "^24.10.3",
-    "browserstack-node-sdk": "^1.47.0"
+    "browserstack-node-sdk": "^1.47.1"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
