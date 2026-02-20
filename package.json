@@ -25,6 +25,7 @@
     "browserstack-node-sdk": "^1.47.1"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
     "dotenv": "^17.2.3",
     "exceljs": "^4.4.0",
     "playwright": "^1.57.0",

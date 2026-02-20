@@ -2,7 +2,8 @@ import { Locator, Page, expect } from "@playwright/test";
 import { BASE_URL } from "../utils/testData.json";
 import { writeResultToExcel } from "../utils/excelWrite";
 
-const excelPath = "C:/Users/RashikaSharma/Desktop/Project2025/utils/dummy.xlsx";
+const excelPath = "/Users/rashika.sharma/project-2025/utils/dummyfile.xlsx";
+
 const sheet = "Sheet1";
 
 export class loginPage {

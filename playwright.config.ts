@@ -2,6 +2,8 @@ import { defineConfig, devices } from '@playwright/test';
 
 
 
+
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -15,6 +17,8 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+
+  snapshotDir: 'visual-snapshots',
   /* Run tests in files in parallel */
   fullyParallel: false,
  

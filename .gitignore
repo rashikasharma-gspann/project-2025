@@ -8,4 +8,7 @@ node_modules/
 /playwright/.auth/
 .env
 browserstack.yml
+**/*.png
+**/*-snapshots/
+
 
